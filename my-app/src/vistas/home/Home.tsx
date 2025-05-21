@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
-import Slider from '../../componentes/slider/Slider';
+import Slider from '../../componentes/slider/component/slider/Slider';
 
 const Home: React.FC = () => {
     return (

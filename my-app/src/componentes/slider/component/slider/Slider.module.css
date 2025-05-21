@@ -28,7 +28,7 @@
     border-radius: 10px;
   }
   
-  button {
+  /* button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -57,7 +57,7 @@
   .next:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
+  } */
   
   .indicators {
     text-align: center;
