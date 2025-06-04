@@ -2,14 +2,17 @@ import { Rutas } from './rutas/Rutas'
 import { Menu } from './componentes' 
 import './App.css'
 
-const items = [
-  { id: 1, inicio: 'Inicio', acerca: 'Sobre mi', contacto: 'Contacto', productos: 'Productos' }
-]
 
 function App( ) {
+  const menuItems = [
+    { id: 1, path: '/inicio', label: 'Inicio' },
+    { id: 2, path: '/acerca', label: 'Acerca' },
+    { id: 3, path: '/contacto', label: 'Contacto' },
+    { id: 4, path: '/productos', label: 'Productos' }
+  ];
   return (
     <div>
-      < Menu items={items} />      
+      <Menu items={menuItems} />
       <div>
         <Rutas />         
       </div>

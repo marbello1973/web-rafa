@@ -1,65 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Menu.module.css';
 
-interface Item {
+interface MenuItem {
   id: number;
-  inicio: string;
-  acerca: string;
-  contacto: string;
-  productos: string;  
-} 
+  path: string;
+  label: string;
+}
 
 interface MenuProps {
-  items: Item[];
+  items: MenuItem[];
 }
 
 const Menu: React.FC<MenuProps> = ({ items }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+      setShowScrollButton(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <nav className={styles.nav}>
-      <div className={styles.menuButton} onClick={() => toggleMenu()}>
-        {
-          isOpen ?  
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666">
-                      <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
-                    </svg>
-                  </span> 
-                 : 
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666">
-                      <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
-                    </svg>
-                  </span> 
-        }       
-      </div>
-      <ul className={`${styles.list} ${isOpen ? styles.show : ''}`}>
-        {items.map(item => (
-          <React.Fragment key={item.id}>
-            <li className={styles.listItem}>
-              <Link to="/inicio" className={styles.link}>{item.inicio}</Link>
-            </li>
-            <li className={styles.listItem}>
-              <Link to="/acerca" className={styles.link}>{item.acerca}</Link>
-            </li>
-            <li className={styles.listItem}>
-              <Link to="/contacto" className={styles.link}>{item.contacto}</Link>
-            </li>
-            <li className={styles.listItem}>
-              <Link to="/productos" className={styles.link}>{item.productos}</Link>
-            </li>              
-          </React.Fragment>
-        ))}
-      </ul>
-    </nav>
+    <>
+      <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+        <nav className={styles.nav}>
+          <div className={styles.logo}>
+            <Link to="/">EL LOGO DE RAFA</Link>
+          </div>
+          
+          <div className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}>
+            {items.map(item => (
+              <Link 
+                key={item.id} 
+                to={item.path} 
+                className={styles.link}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          
+          <div className={styles.menuButton} onClick={toggleMenu}>
+            {isOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+              </svg>
+            )}
+          </div>
+        </nav>
+      </header>
+
+      {showScrollButton && (
+        <button className={styles.scrollToTop} onClick={scrollToTop}>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+            <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
+          </svg>
+        </button>
+      )}
+    </>
   );
 };
 
 export default Menu;
-
