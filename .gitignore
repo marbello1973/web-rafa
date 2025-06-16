@@ -1,8 +1,2 @@
 # node modules
 node_modules
-# logs
-logs/
-# dependency directories
-jspm_packages/
-# coverage directory used by tools like istanbul
-coverage/   
