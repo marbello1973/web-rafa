@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaRocket, FaShieldAlt, FaChartLine, FaLightbulb, FaRegHeart } from 'react-icons/fa';
-import { FiCoffee, FiUsers, FiGlobe, FiPackage } from 'react-icons/fi';
+import { FiCoffee, FiGlobe} from 'react-icons/fi';
 import { IoMdTrendingUp } from 'react-icons/io';
 import styles from './Home.module.css';
 

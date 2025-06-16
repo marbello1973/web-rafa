@@ -1,7 +1,5 @@
 # node modules
-node_modules/
-# build output
-dist/
+node_modules
 # logs
 logs/
 # dependency directories
