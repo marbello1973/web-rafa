@@ -9,7 +9,7 @@ const NavbarPc = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY <= 0) {
         // En la parte superior de la página
         setScrolled(false);
@@ -25,13 +25,13 @@ const NavbarPc = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
   return (
     <nav className={`${styles.navContainer} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.navContent}>        
+      <div className={styles.navContent}>
         <ul className={styles.navList}>
           <li className={styles.navItem}><NavLink to="/">Home</NavLink></li>
           <li className={styles.navItem}><NavLink to="/about">About</NavLink></li>
