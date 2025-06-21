@@ -1,6 +1,7 @@
 import styles from './home.module.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { FaCog, FaTimes } from 'react-icons/fa'; // Importamos iconos de react-icons
+import Footer from '../footer/footer';
 
 const Home = () => {
   // Estados para los elementos personalizables
@@ -134,7 +135,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-
+      {/*
       <section className={styles.aboutSection}>
         <h2 className={styles.sectionTitle}>Sobre Nosotros</h2>
         <p className={styles.aboutText}>
@@ -142,6 +143,8 @@ const Home = () => {
           ayudan a nuestros clientes a alcanzar sus objetivos empresariales.
         </p>
       </section>
+      */}
+
     </div>
   );
 };
