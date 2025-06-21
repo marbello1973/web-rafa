@@ -82,8 +82,8 @@ const Blog = () => {
   // Filtrar artículos por categoría y búsqueda
   const filteredArticles = articles.filter(article => {
     const matchesCategory = activeCategory === 'todos' || article.category === activeCategory;
-    const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                         article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -118,7 +118,7 @@ const Blog = () => {
             <h3>Categorías</h3>
             <ul>
               {categories.map(category => (
-                <li 
+                <li
                   key={category.id}
                   className={activeCategory === category.id ? styles.active : ''}
                   onClick={() => setActiveCategory(category.id)}

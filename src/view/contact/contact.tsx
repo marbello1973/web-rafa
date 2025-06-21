@@ -13,7 +13,7 @@ type FormData = {
 
 type Errors = Partial<Record<FormFields, string>>;
 
-const Contact = () => {  
+const Contact = () => {
 
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -66,12 +66,12 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
+
     try {
       // Simular envío a una API
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -104,13 +104,13 @@ const Contact = () => {
         {/* Contact Form */}
         <section className={styles.formSection}>
           <h2 className={styles.sectionTitle}>Envía un mensaje</h2>
-          
+
           {submitStatus === 'success' && (
             <div className={styles.successMessage}>
               ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
             </div>
           )}
-          
+
           {submitStatus === 'error' && (
             <div className={styles.errorMessage}>
               Ocurrió un error al enviar el mensaje. Por favor intenta nuevamente.
@@ -190,8 +190,8 @@ const Contact = () => {
               {errors.message && <span className={styles.errorText}>{errors.message}</span>}
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={styles.submitButton}
               disabled={isSubmitting}
             >
@@ -203,7 +203,7 @@ const Contact = () => {
         {/* Contact Info */}
         <section className={styles.infoSection}>
           <h2 className={styles.sectionTitle}>Información de contacto</h2>
-          
+
           <div className={styles.contactInfo}>
             <div className={styles.infoItem}>
               <div className={styles.infoIcon}>📍</div>
@@ -213,7 +213,7 @@ const Contact = () => {
                 <p>Edificio Corporativo, Piso 5</p>
               </div>
             </div>
-            
+
             <div className={styles.infoItem}>
               <div className={styles.infoIcon}>✉️</div>
               <div>
@@ -222,7 +222,7 @@ const Contact = () => {
                 <p>soporte@empresa.com</p>
               </div>
             </div>
-            
+
             <div className={styles.infoItem}>
               <div className={styles.infoIcon}>📞</div>
               <div>
@@ -232,7 +232,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           <div className={styles.businessHours}>
             <h3>Horario de atención</h3>
             <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>

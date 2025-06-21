@@ -3,15 +3,15 @@ import { useState } from 'react';
 
 const About = () => {
   // Estados para elementos personalizables
-  const [title, setTitle] = useState('Sobre Nosotros');
-  const [mission, setMission] = useState('Nuestra misión es proporcionar soluciones digitales innovadoras que impulsen el éxito de nuestros clientes.');
-  const [vision, setVision] = useState('Ser líderes en desarrollo tecnológico, reconocidos por nuestra creatividad y excelencia.');
-  const [team, setTeam] = useState([
+  const [title, _setTitle] = useState('Sobre Nosotros');
+  const [mission, _setMission] = useState('Nuestra misión es proporcionar soluciones digitales innovadoras que impulsen el éxito de nuestros clientes.');
+  const [vision, _setVision] = useState('Ser líderes en desarrollo tecnológico, reconocidos por nuestra creatividad y excelencia.');
+  const [team, _setTeam] = useState([
     { name: 'Juan Pérez', role: 'CEO & Fundador', bio: 'Más de 15 años de experiencia en desarrollo de software.' },
     { name: 'María García', role: 'Diseñadora UX/UI', bio: 'Especialista en experiencia de usuario e interfaces intuitivas.' },
     { name: 'Carlos López', role: 'Desarrollador Senior', bio: 'Experto en React, Node.js y arquitectura de software.' }
   ]);
-  const [values, setValues] = useState([
+  const [values, _setValues] = useState([
     'Innovación constante',
     'Calidad en cada producto',
     'Transparencia con nuestros clientes',

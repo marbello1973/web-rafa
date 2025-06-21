@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 const Portfolio = () => {
   // Estados para elementos personalizables
-  const [title, setTitle] = useState('Nuestro Portfolio');
-  const [subtitle, setSubtitle] = useState('Trabajos destacados que muestran nuestra experiencia');
+  const [title, _setTitle] = useState('Nuestro Portfolio');
+  const [subtitle, _setSubtitle] = useState('Trabajos destacados que muestran nuestra experiencia');
   const [activeFilter, setActiveFilter] = useState('todos');
-  
+
   // Proyectos del portfolio
   const projects = [
     {
@@ -74,8 +74,8 @@ const Portfolio = () => {
   ];
 
   // Filtrar proyectos
-  const filteredProjects = activeFilter === 'todos' 
-    ? projects 
+  const filteredProjects = activeFilter === 'todos'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   return (
@@ -106,9 +106,9 @@ const Portfolio = () => {
           {filteredProjects.map(project => (
             <div key={project.id} className={styles.projectCard}>
               <div className={styles.projectImage}>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className={styles.image}
                 />
                 <div className={styles.overlay}>

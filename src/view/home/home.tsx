@@ -6,7 +6,7 @@ const Home = () => {
   // Estados para los elementos personalizables
   const [title, setTitle] = useState('Bienvenido a Nuestra Plataforma');
   const [subtitle, setSubtitle] = useState('Soluciones innovadoras para tus necesidades');
-  const [features, setFeatures] = useState([
+  const [features, _setFeatures] = useState([
     'Diseño moderno y responsive',
     'Fácil personalización',
     'Rendimiento optimizado',
@@ -15,20 +15,20 @@ const Home = () => {
   const [primaryColor, setPrimaryColor] = useState('#3498db');
   const [secondaryColor, setSecondaryColor] = useState('#2c3e50');
   const [backgroundImage, setBackgroundImage] = useState('https://images.unsplash.com/photo-1497366754035-f200968a6e72');
-  
+
   // Estado para controlar la visibilidad del panel
   const [showPanel, setShowPanel] = useState(false);
 
   return (
-    <div 
+    <div
       className={styles.homeContainer}
-      style={{ 
+      style={{
         '--primary-color': primaryColor,
         '--secondary-color': secondaryColor,
         '--bg-image': `url(${backgroundImage})`
       } as React.CSSProperties}
-    >      
-      <button 
+    >
+      <button
         className={`${styles.togglePanelButton} ${showPanel ? styles.hidden : ''}`}
         onClick={() => setShowPanel(!showPanel)}
         style={{ backgroundColor: primaryColor }}
@@ -40,53 +40,53 @@ const Home = () => {
       <div className={`${styles.customizationPanel} ${showPanel ? styles.visible : ''}`}>
         <div className={styles.panelHeader}>
           <h3>Personalización</h3>
-          <button 
+          <button
             className={styles.closeButton}
             onClick={() => setShowPanel(false)}
           >
             <FaTimes />
           </button>
         </div>
-        
+
         <div className={styles.panelContent}>
           <div className={styles.formGroup}>
             <label>Título:</label>
-            <input 
-              type="text" 
-              value={title} 
-              onChange={(e) => setTitle(e.target.value)} 
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className={styles.formGroup}>
             <label>Subtítulo:</label>
-            <input 
-              type="text" 
-              value={subtitle} 
-              onChange={(e) => setSubtitle(e.target.value)} 
+            <input
+              type="text"
+              value={subtitle}
+              onChange={(e) => setSubtitle(e.target.value)}
             />
           </div>
           <div className={styles.formGroup}>
             <label>Color Primario:</label>
-            <input 
-              type="color" 
-              value={primaryColor} 
-              onChange={(e) => setPrimaryColor(e.target.value)} 
+            <input
+              type="color"
+              value={primaryColor}
+              onChange={(e) => setPrimaryColor(e.target.value)}
             />
           </div>
           <div className={styles.formGroup}>
             <label>Color Secundario:</label>
-            <input 
-              type="color" 
-              value={secondaryColor} 
-              onChange={(e) => setSecondaryColor(e.target.value)} 
+            <input
+              type="color"
+              value={secondaryColor}
+              onChange={(e) => setSecondaryColor(e.target.value)}
             />
           </div>
           <div className={styles.formGroup}>
             <label>Imagen de Fondo:</label>
-            <input 
-              type="text" 
-              value={backgroundImage} 
-              onChange={(e) => setBackgroundImage(e.target.value)} 
+            <input
+              type="text"
+              value={backgroundImage}
+              onChange={(e) => setBackgroundImage(e.target.value)}
               placeholder="URL de la imagen"
             />
           </div>
@@ -115,7 +115,7 @@ const Home = () => {
       <section className={styles.aboutSection}>
         <h2 className={styles.sectionTitle}>Sobre Nosotros</h2>
         <p className={styles.aboutText}>
-          Somos un equipo dedicado a crear soluciones digitales innovadoras que 
+          Somos un equipo dedicado a crear soluciones digitales innovadoras que
           ayudan a nuestros clientes a alcanzar sus objetivos empresariales.
         </p>
       </section>

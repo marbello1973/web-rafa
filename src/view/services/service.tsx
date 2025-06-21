@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import styles from './service.module.css';
-import { Link, NavLink } from 'react-router-dom';
-import Contact from '../contact/contact';
+import { NavLink } from 'react-router-dom';
 
 const Services = () => {
   // Estados para elementos personalizables
-  const [title, setTitle] = useState('Nuestros Servicios');
-  const [subtitle, setSubtitle] = useState('Soluciones profesionales diseñadas para impulsar tu negocio');
+  const [title, _setTitle] = useState('Nuestros Servicios');
+  const [subtitle, _setSubtitle] = useState('Soluciones profesionales diseñadas para impulsar tu negocio');
   const [activeTab, setActiveTab] = useState(0);
-  
+
   const services = [
     {
       title: 'Diseño Web',
@@ -108,7 +107,7 @@ const Services = () => {
           <div className={styles.serviceDetails}>
             <h2>{services[activeTab].title}</h2>
             <p className={styles.serviceDescription}>{services[activeTab].description}</p>
-            
+
             <div className={styles.featuresGrid}>
               {services[activeTab].features.map((feature, idx) => (
                 <div key={idx} className={styles.featureItem}>
@@ -117,15 +116,15 @@ const Services = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className={styles.priceBox}>
               <span className={styles.priceLabel}>Inversión:</span>
               <span className={styles.priceValue}>{services[activeTab].price}</span>
             </div>
-            
+
             <button className={styles.ctaButton}>Solicitar este servicio</button>
           </div>
-          
+
           <div className={styles.serviceImage}>
             <div className={styles.imagePlaceholder}>
               {services[activeTab].icon}
@@ -149,7 +148,7 @@ const Services = () => {
                   <li key={idx}>{feature}</li>
                 ))}
               </ul>
-              <button 
+              <button
                 className={styles.cardButton}
                 onClick={() => setActiveTab(index)}
               >
