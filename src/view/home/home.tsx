@@ -1,7 +1,6 @@
 import styles from './home.module.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { FaCog, FaTimes } from 'react-icons/fa'; // Importamos iconos de react-icons
-import Footer from '../footer/footer';
 
 const Home = () => {
   // Estados para los elementos personalizables
