@@ -1,5 +1,5 @@
 import styles from './home.module.css';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaCog, FaTimes } from 'react-icons/fa'; // Importamos iconos de react-icons
 
 const Home = () => {
@@ -18,6 +18,29 @@ const Home = () => {
 
   // Estado para controlar la visibilidad del panel
   const [showPanel, setShowPanel] = useState(false);
+
+  // lazy loading o carga diferida
+  const [isBgLoaded, setIsBgLoaded] = useState(false);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !isBgLoaded) {
+          const img = new Image();
+          img.src = backgroundImage;
+          img.onload = () => {
+            setIsBgLoaded(true)
+          };
+          observer.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+    return () => observer.disconnect();
+  }, [backgroundImage, isBgLoaded])
 
   return (
     <div
@@ -124,6 +147,4 @@ const Home = () => {
 };
 
 export default Home;
-
-
 
