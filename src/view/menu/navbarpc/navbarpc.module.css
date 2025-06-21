@@ -1,0 +1,95 @@
+/* Contenedor principal */
+.navContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(44, 62, 80, 0.95);
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Estado cuando se hace scroll */
+.navContainer.scrolled {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Contenido del navbar */
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+/* Lista de navegación */
+.navList {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Items del menú */
+.navItem {
+  position: relative;
+}
+
+.navItem a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  display: block;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+/* Efectos hover */
+.navItem a:hover {
+  color: #3498db;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de subrayado animado */
+.navItem a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #3498db;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navItem a:hover::after {
+  width: 60%;
+}
+
+/* Item activo (opcional) */
+.navItem a.active {
+  color: #3498db;
+}
+
+.navItem a.active::after {
+  width: 60%;
+}
+
+/* Transición cuando vuelve a aparecer */
+.navContainer:not(.scrolled) {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive: ocultar en móviles */
+@media (max-width: 768px) {
+  .navContainer {
+    display: none;
+  }
+}

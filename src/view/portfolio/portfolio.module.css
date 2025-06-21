@@ -1,0 +1,278 @@
+/* Variables CSS */
+.portfolioContainer {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --light-bg: #f9f9f9;
+  --dark-text: #333;
+  --light-text: #777;
+  --bg-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d');
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.heroSection {
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.heroSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Portfolio Content */
+.portfolioContent {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+/* Filter Buttons */
+.filterButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  background: none;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.filterButton.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Projects Grid */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.projectCard {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.projectImage {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .image {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(52, 152, 219, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .overlay {
+  opacity: 1;
+}
+
+.viewButton {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.viewButton:hover {
+  background: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.projectInfo {
+  padding: 1.5rem;
+}
+
+.projectInfo h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--light-text);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* CTA Section */
+.ctaSection {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.ctaButton {
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ctaButton:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.navlink {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .heroSection {
+    padding: 5rem 1rem;
+  }
+  
+  .filterButtons {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolioContent {
+    padding: 0 1rem;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaSection h2 {
+    font-size: 1.5rem;
+  }
+  
+  .ctaSection p {
+    font-size: 1rem;
+  }
+}

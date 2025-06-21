@@ -1,23 +1,14 @@
-import { Rutas } from './rutas/Rutas'
-import { Menu } from './componentes' 
 import './App.css'
+import Menu from './view/menu/menu';
+import RouterConfig from './view/menu/routerConfig';
 
-
-function App( ) {
-  const menuItems = [
-    { id: 1, path: '/inicio', label: 'Inicio' },
-    { id: 2, path: '/acerca', label: 'Acerca' },
-    { id: 3, path: '/contacto', label: 'Contacto' },
-    { id: 4, path: '/productos', label: 'Productos' }
-  ];
+function App() { 
   return (
     <div>
-      <Menu items={menuItems} />
-      <div>
-        <Rutas />         
-      </div>
-    </div>    
+      <Menu/>
+      <RouterConfig/>
+    </div>
   )
 }
-
 export default App
+

@@ -1,0 +1,433 @@
+/* Variables CSS */
+.servicesContainer {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --light-bg: #f9f9f9;
+  --dark-text: #333;
+  --light-text: #777;
+  --bg-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40');
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.heroSection {
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.heroSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Services Tabs Section */
+.servicesSection {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.tabsHeader {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--light-text);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tabButton:hover {
+  color: var(--primary-color);
+}
+
+.tabButton.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.tabButton.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+.tabIcon {
+  font-size: 1.2rem;
+}
+
+.tabContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.serviceDetails h2 {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.serviceDescription {
+  color: var(--light-text);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--dark-text);
+}
+
+.checkIcon {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.priceBox {
+  background-color: var(--light-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.priceLabel {
+  color: var(--light-text);
+}
+
+.priceValue {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.serviceImage {
+  background-color: var(--light-bg);
+  border-radius: 8px;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder {
+  text-align: center;
+  padding: 2rem;
+}
+
+.imagePlaceholder span {
+  display: block;
+  margin-top: 1rem;
+  color: var(--light-text);
+  font-size: 1.2rem;
+}
+
+/* All Services Section */
+.allServicesSection {
+  background-color: var(--light-bg);
+  padding: 4rem 2rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 1rem auto 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.serviceCard h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.serviceCard p {
+  color: var(--light-text);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.cardFeatures {
+  text-align: left;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  color: var(--dark-text);
+}
+
+.cardFeatures li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.cardFeatures li::before {
+  content: '•';
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.cardButton {
+  background: none;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cardButton:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonialCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.testimonialCard::before {
+  content: '"';
+  font-size: 5rem;
+  color: rgba(52, 152, 219, 0.1);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  line-height: 1;
+}
+
+.rating {
+  color: #f1c40f;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.testimonialText {
+  font-style: italic;
+  color: var(--dark-text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.clientInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.clientInfo strong {
+  color: var(--secondary-color);
+}
+
+.clientInfo span {
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.ctaSection {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* CTA Button (reusable) */
+.ctaButton {
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ctaButton:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navlink {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .tabContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .serviceImage {
+    order: -1;
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .heroSection {
+    padding: 5rem 1rem;
+  }
+  
+  .tabsHeader {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesSection, 
+  .allServicesSection,
+  .testimonialsSection {
+    padding: 2rem 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}

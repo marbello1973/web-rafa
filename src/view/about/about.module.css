@@ -1,0 +1,274 @@
+/* Variables CSS consistentes con el tema */
+.aboutContainer {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --bg-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c');
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.heroSection {
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.heroSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Secciones comunes */
+.sectionContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 1rem auto 0;
+}
+
+/* Historia Section */
+.historySection {
+  padding: 4rem 0;
+  background-color: #f9f9f9;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary-color);
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 3rem;
+}
+
+.timelineItem h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--primary-color);
+}
+
+/* Misión y Visión Section */
+.missionVisionSection {
+  padding: 4rem 0;
+  background-color: white;
+}
+
+.missionVisionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.missionCard, .visionCard {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.missionCard {
+  border-top: 4px solid var(--primary-color);
+}
+
+.visionCard {
+  border-top: 4px solid var(--secondary-color);
+}
+
+.missionCard:hover, .visionCard:hover {
+  transform: translateY(-5px);
+}
+
+/* Team Section */
+.teamSection {
+  padding: 4rem 0;
+  background-color: #f5f7fa;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.teamCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.teamCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.teamAvatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.teamRole {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.teamBio {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Values Section */
+.valuesSection {
+  padding: 4rem 0;
+  background-color: white;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.valueCard {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.valueCard:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.valueIcon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.valueCard:hover .valueIcon {
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .heroSection {
+    padding: 5rem 1rem;
+  }
+
+  .missionVisionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    padding-left: 1rem;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timelineItem {
+    padding-left: 2rem;
+  }
+
+  .timelineItem::before {
+    left: 5px;
+  }
+}
