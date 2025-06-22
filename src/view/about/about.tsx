@@ -1,7 +1,9 @@
+import { usePersonalization } from "../../component/context/personalization.context";
 import styles from "./about.module.css";
 import { useState } from 'react';
 
 const About = () => {
+  const { state } = usePersonalization();
   // Estados para elementos personalizables
   const [title, _setTitle] = useState('Sobre Nosotros');
   const [mission, _setMission] = useState('Nuestra misión es proporcionar soluciones digitales innovadoras que impulsen el éxito de nuestros clientes.');
@@ -19,7 +21,14 @@ const About = () => {
   ]);
 
   return (
-    <div className={styles.aboutContainer}>
+    <div className={styles.aboutContainer}
+      style={{
+        '--primary-color': state.primaryColor,
+        '--secondary-color': state.secondaryColor,
+        '--bg-image': `url(${state.backgroundImage})`
+      } as React.CSSProperties}
+
+    >
       {/* Sección Hero */}
       <section className={styles.heroSection}>
         <h1 className={styles.mainTitle}>{title}</h1>
