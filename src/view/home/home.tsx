@@ -1,15 +1,16 @@
 import React from 'react';
 import { usePersonalization } from '../../component/context/personalization.context';
 import styles from './home.module.css';
+import Card from '../../component/card/card';
 
 const Home: React.FC = () => {
   const { state } = usePersonalization();
 
   const features = [
-    { id: 1, text: 'Diseño moderno y responsive', icon: '📱' },
-    { id: 2, text: 'Fácil personalización', icon: '🎨' },
-    { id: 3, text: 'Rendimiento optimizado', icon: '⚡' },
-    { id: 4, text: 'Soporte técnico 24/7', icon: '🛠️' }
+    { id: 1, title: 'Diseño moderno y responsive', icon: '📱', description: 'description' },
+    { id: 2, title: 'Fácil personalización', icon: '🎨', description: 'description' },
+    { id: 3, title: 'Rendimiento optimizado', icon: '⚡', description: 'description' },
+    { id: 4, title: 'Soporte técnico 24/7', icon: '🛠️', description: 'description' }
   ];
 
   return (
@@ -31,10 +32,12 @@ const Home: React.FC = () => {
         <h2 className={styles.sectionTitle}>Nuestras Características</h2>
         <div className={styles.featuresGrid}>
           {features.map(feature => (
-            <div key={feature.id} className={styles.featureCard}>
-              <div className={styles.featureIcon}>{feature.icon}</div>
-              <p className={styles.featureText}>{feature.text}</p>
-            </div>
+            < Card
+              key={feature.id}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
           ))}
         </div>
       </section>
