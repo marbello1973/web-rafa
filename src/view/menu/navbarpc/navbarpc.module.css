@@ -57,7 +57,7 @@
 
 /* Efecto de subrayado animado */
 .navItem a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -87,9 +87,20 @@
   opacity: 1;
 }
 
+.cartWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
 /* Responsive: ocultar en móviles */
 @media (max-width: 768px) {
   .navContainer {
     display: none;
+  }
+
+  .cartWrapper {
+    margin-left: 1rem;
   }
 }

@@ -1,6 +1,7 @@
-import { NavLink } from 'react-router-dom';
-import styles from './navbarpc.module.css';
+import { NavLink } from "react-router-dom";
+import styles from "./navbarpc.module.css";
 import { useState, useEffect } from "react";
+import { CartIcon, CartModal } from "../../../component/Cart";
 
 const NavbarPc = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,25 +25,47 @@ const NavbarPc = () => {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   return (
-    <nav className={`${styles.navContainer} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.navContent}>
-        <ul className={styles.navList}>
-          <li className={styles.navItem}><NavLink to="/">Home</NavLink></li>
-          <li className={styles.navItem}><NavLink to="/about">About</NavLink></li>
-          <li className={styles.navItem}><NavLink to="/contact">Contact</NavLink></li>
-          <li className={styles.navItem}><NavLink to="/services">Services</NavLink></li>
-          <li className={styles.navItem}><NavLink to="/blog">Blog</NavLink></li>
-          <li className={styles.navItem}><NavLink to="/portfolio">Portfolio</NavLink></li>
-          <li className={styles.navItem}><NavLink to="/faq">FAQ</NavLink></li>
-        </ul>
-      </div>
-    </nav>
+    <>
+      <nav
+        className={`${styles.navContainer} ${scrolled ? styles.scrolled : ""}`}
+      >
+        <div className={styles.navContent}>
+          <ul className={styles.navList}>
+            <li className={styles.navItem}>
+              <CartIcon />
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/services">Services</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/blog">Blog</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/portfolio">Portfolio</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/faq">FAQ</NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <CartModal />
+    </>
   );
 };
 

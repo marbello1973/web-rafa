@@ -8,6 +8,13 @@
   width: 100%;
 }
 
+.navHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
 /* Botón del menú */
 .navContainer button {
   background-color: #3498db;
@@ -78,9 +85,7 @@
   width: 20px;
   height: 2px;
   background-color: currentColor;
-  box-shadow: 
-    0 -6px currentColor,
-    0 6px currentColor;
+  box-shadow: 0 -6px currentColor, 0 6px currentColor;
   transition: all 0.3s ease;
 }
 
@@ -89,12 +94,71 @@
   box-shadow: none;
 }
 
+.cartWrapperMobile {
+  display: flex;
+  align-items: center;
+  z-index: 1002;
+  /* Asegura que esté por encima del menú */
+}
+
+/* Estilos específicos para el CartIcon dentro del navbar móvil */
+.cartWrapperMobile > * {
+  all: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+}
+
+.cartWrapperMobile > *:hover {
+  background-color: #f0f0f0;
+}
+
+/* Si el CartIcon renderiza un button directamente */
+.cartWrapperMobile button {
+  all: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+  color: white !important;
+  font-size: 1.5rem !important;
+}
+
+.cartWrapperMobile button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.cartWrapperMobile > *::before {
+  display: none !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
+.cartWrapperMobile button::before {
+  display: none !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
 /* Animaciones */
 @keyframes slideDown {
   from {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
